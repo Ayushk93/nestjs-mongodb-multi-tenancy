@@ -37,7 +37,7 @@ export class DatabaseService {
   }
 
   async createConnectionMon(): Promise<Connection> {
-    const connectionUri = `mongodb://localhost:27017/${this.context.req.headers['database']}`;
+    const connectionUri = `${process.env.MONGO_DB_CONNECTION_STRING}/${this.context.req.headers['database']}`;
     const connection = await mongoose.createConnection(connectionUri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

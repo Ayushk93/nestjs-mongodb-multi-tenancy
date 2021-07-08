@@ -6,15 +6,25 @@ import { TenantUsersModule } from './tenant-users/tenant-users.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TenantUserMuModule } from './tenant-user-mu/tenant-user-mu.module';
 import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/master_db', {
-      connectionName: 'master_connection',
+    ConfigModule.forRoot({
+      envFilePath: '.env',
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/tenant_db', {
-      connectionName: 'tenent_connection',
-    }),
+    MongooseModule.forRoot(
+      `${process.env.MONGO_DB_CONNECTION_STRING}/aab_tenant`,
+      {
+        connectionName: 'master_connection',
+      },
+    ),
+    MongooseModule.forRoot(
+      `${process.env.MONGO_DB_CONNECTION_STRING}/heranba_tenant`,
+      {
+        connectionName: 'master_connection',
+      },
+    ),
     GraphQLModule.forRoot({
       debug: false,
       playground: true,
