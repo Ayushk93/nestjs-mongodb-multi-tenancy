@@ -22,7 +22,7 @@ import { ConfigModule } from '@nestjs/config';
     MongooseModule.forRoot(
       `${process.env.MONGO_DB_CONNECTION_STRING}/heranba_tenant`,
       {
-        connectionName: 'master_connection',
+        connectionName: 'another_connection',
       },
     ),
     GraphQLModule.forRoot({

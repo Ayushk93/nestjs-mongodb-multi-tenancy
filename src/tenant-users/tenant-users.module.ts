@@ -8,7 +8,7 @@ import { UserTSchema } from './tenant-user.schema';
   imports: [
     MongooseModule.forFeature(
       [{ name: 'User', schema: UserTSchema }],
-      'tenent_connection',
+      'master_connection',
     ),
   ],
   providers: [TenantUsersResolver, TenantUsersService],
