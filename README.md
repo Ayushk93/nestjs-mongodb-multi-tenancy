@@ -1,6 +1,6 @@
 ## Description
 
-Nest framework TypeScript starter repository with MongoDB integration and multi-tenancy architecture.
+Nest framework TypeScript starter repository with MongoDB, GraphQL integration and multi-tenancy architecture.
 
 ## Installation
 
@@ -21,18 +21,27 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
-
+## Multi Tenant Database Connectivity 
 ```bash
-# unit tests
-$ npm run test
+Pass Database Name in HTTP Headers
 
-# e2e tests
-$ npm run test:e2e
+{
+  "database": "<tenant_name>"
+}
 
-# test coverage
-$ npm run test:cov
 ```
-## License
 
-This Starter is [MIT licensed](LICENSE).
+## Problem We Are Facing
+
+1. In multi-tenancy mode, for each request a new database connection is being created when more requests are coming in less time.
+
+2. Old DB connection in mongoose.connections are getting undefined.
+ 
+3. Old DB connection is not being reused.
+
+4. Mongo Atlas Connection count increasing due to above behaviour.
+
+
+## Old DB Connection Undfined Error Screnshot
+
+![Screenshot](error_screenshot.PNG)
