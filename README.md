@@ -1,6 +1,6 @@
 ## Description
 
-Nest framework TypeScript starter repository with MongoDB, GraphQL integration and multi-tenancy architecture.
+NestJS framework TypeScript starter repository with MongoDB, GraphQL integration and multi-tenancy architecture.
 
 ## Installation
 
