@@ -17,10 +17,6 @@ export const TenantModelProviders = [
 
 @Module({
   imports: [
-    // MongooseModule.forFeature(
-    //   [{ name: 'User', schema: UserTSchema }],
-    //   'master_connection',
-    // ),
     DatabaseModule,
   ],
   providers: [

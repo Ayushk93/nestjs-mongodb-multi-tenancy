@@ -21,6 +21,5 @@ export class TenantUserMuService {
     const min = new Date().getMinutes();
     const hr = new Date().getHours();
     console.log(hr, ':', min, ' Connection Length -> ', connection.length);
-    return this.userModel.find({}).exec();
   }
 }

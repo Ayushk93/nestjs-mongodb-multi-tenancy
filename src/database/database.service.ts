@@ -12,18 +12,16 @@ export class DatabaseService {
     const connection = mongoose.connections;
     const minu = new Date().getMinutes();
     const hr = new Date().getHours();
+    const sec = new Date().getSeconds();
     const foundConn = connection.find((con: Connection) => {
-      console.log(
-        'inside find',
-        con.name,
-        this.context.req.headers['database'],
-      );
       return con.name === this.context.req.headers['database'];
     });
     console.log(
       hr,
       ':',
       minu,
+      ':',
+      sec,
       ' connection -> ',
       connection.length,
       this.context.req.headers['database'],
